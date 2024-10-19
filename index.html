@@ -9,8 +9,8 @@
 <body>
 
 <form id="serviceJobForm">
-    <div class="row">
-        <div class="column" >
+    <div class="row" >
+        <div class="column">
             <fieldset>
                 <p>Client details</p>
                 <div class="row">
@@ -114,7 +114,8 @@
                 </div>
                 <div class="row">
                     <div class="column">
-                        <select id="test" name="test">
+                        <select id="test" name="test" required>
+                            <option value="">Test select</option>
                             <option value="test1">test1</option>
                             <option value="test2">test2</option>
                             <option value="test3">test3</option>
@@ -125,8 +126,46 @@
         </div>
     </div>
 
-    <button type="button" onclick="saveToPipedrive()">Submit</button>
+    <button type="button" onclick="validateForm()">Submit</button>
 </form>
+
+<script>
+  function validateForm() {
+    let isValid = true;
+
+    const requiredFields = document.querySelectorAll('#serviceJobForm [required]');
+    console.log(requiredFields);
+
+    requiredFields.forEach(field => {
+      field.style.borderColor = '';
+      const errorMsg = field.parentNode.querySelector('.error-message');
+      if (errorMsg) {
+        errorMsg.remove();
+      }
+    });
+
+    requiredFields.forEach(field => {
+      if (!field.value.trim()) {
+        isValid = false;
+        field.style.borderColor = 'red';
+
+        if (!field.nextElementSibling || !field.nextElementSibling.classList.contains('error-message')) {
+          const errorMessage = document.createElement('span');
+          errorMessage.textContent = `Required`;
+          errorMessage.classList.add('error-message');
+          errorMessage.style.color = 'red';
+          errorMessage.style.fontSize = '12px';
+          field.parentNode.appendChild(errorMessage);
+        }
+      }
+    });
+
+    if (!isValid) {
+      return false;
+    }
+    saveToPipedrive();
+  }
+</script>
 
 <script>
   document.querySelectorAll('select').forEach(function(selectElement) {
@@ -219,7 +258,7 @@
         const dealUrl = `https://143.pipedrive.com/deal/${dealId}`;
         const modalDiv = document.createElement('div');
         modalDiv.innerHTML = `
-        <div id="modalContent" style="background: #fff; padding: 20px; border: 1px solid #ccc; position: relative; width: 400px; margin: 20px auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <div id="modalContent" style="background: #fff; padding: 20px; border: 1px solid #ccc; position: relative; width: 600px; margin: 20px auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
             <p>Deal successfully created in Pipedrive!
             <a href="${dealUrl}" target="_blank">View it here</a>.</p>
             <button id="closeModal" style="position: absolute; top: 5px; right: 10px;">X</button>
