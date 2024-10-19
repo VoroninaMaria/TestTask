@@ -4,117 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service Job Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        fieldset {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ccc;
-        }
-        legend {
-            font-weight: bold;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <form id="serviceJobForm">
-    <fieldset>
-        <legend>Client Details</legend>
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required>
-
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required>
-
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" name="phone" required>
-
-        <label for="email">Email (optional):</label>
-        <input type="email" id="email" name="email">
-    </fieldset>
-
-    <fieldset>
-        <legend>Job Details</legend>
-        <label for="job_type">Job Type:</label>
-        <select id="job_type" name="job_type" required>
-            <option value="">--Select Job Type--</option>
-            <option value="type1">type1</option>
-            <option value="type2">type2</option>
-            <option value="type3">type3</option>
-        </select>
-
-        <label for="job_source">Job Source:</label>
-        <select id="job_source" name="job_source" required>
-            <option value="">--Select Job Source--</option>
-            <option value="source1">source1</option>
-            <option value="source1">source2</option>
-            <option value="source1">source3</option>
-        </select>
-
-        <label for="job_description">Job Description (optional):</label>
-        <textarea id="job_description" name="job_description" rows="4"></textarea>
-    </fieldset>
-
-    <fieldset>
-        <legend>Service Location</legend>
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required>
-
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" required>
-
-        <label for="state">State:</label>
-        <input type="text" id="state" name="state" required>
-
-        <label for="zip">Zip Code:</label>
-        <input type="text" id="zip" name="zip" required>
-
-        <label for="area">Area:</label>
-        <select id="area" name="area" required>
-            <option value="">--Select Area--</option>
-            <option value="area1">area1</option>
-            <option value="area2">area2</option>
-            <option value="area3">area3</option>
-        </select>
-    </fieldset>
-
-    <fieldset>
-        <legend>Scheduled</legend>
-        <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" name="start_date" required>
-
-        <label for="start_time">Start Time:</label>
-        <input type="time" id="start_time" name="start_time" required>
-
-        <label for="end_time">End Time:</label>
-        <input type="time" id="end_time" name="end_time" required>
-
-        <label for="test">Test Select:</label>
-        <select id="test" name="test">
-            <option value="test1">test1</option>
-            <option value="test2">test2</option>
-            <option value="test3">test3</option>
-        </select>
-    </fieldset>
+    <div class="row">
+        <div class="column" >
+            <fieldset>
+                <p>Client details</p>
+                <div class="row">
+                    <div class="column">
+                        <input type="text" id="first_name" name="first_name" placeholder="First name" required>
+                    </div>
+                    <div class="column">
+                        <input type="text" id="last_name" name="last_name" placeholder="Last name" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <input type="email" id="email" name="email" placeholder="Email (optional)">
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="column">
+            <fieldset>
+                <p>Job details</p>
+                <div class="row">
+                    <div class="column">
+                        <select id="job_type" name="job_type" required>
+                            <option value="">Job Type</option>
+                            <option value="type1">type1</option>
+                            <option value="type2">type2</option>
+                            <option value="type3">type3</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <select id="job_source" name="job_source" required>
+                            <option value="">Job Source</option>
+                            <option value="source1">source1</option>
+                            <option value="source2">source2</option>
+                            <option value="source3">source3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <textarea id="job_description" name="job_description" rows="4" placeholder="Job description (optional)"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="row" class="fieldset_block">
+        <div class="column" >
+            <fieldset>
+                <p>Service location</p>
+                <div class="row">
+                    <div class="column">
+                        <input type="text" id="address" name="address" placeholder="Address" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <input type="text" id="city" name="city" placeholder="City" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <input type="text" id="state" name="state" placeholder="State" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <input type="text" id="zip" name="zip" placeholder="Zip code" required>
+                    </div>
+                    <div class="column">
+                        <select id="area" name="area" required>
+                            <option value="">Area</option>
+                            <option value="area1">area1</option>
+                            <option value="area2">area2</option>
+                            <option value="area3">area3</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="column">
+            <fieldset>
+                <p>Scheduled</p>
+                <div class="row">
+                    <div class="column">
+                        <input type="date" id="start_date" name="start_date" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <input type="time" id="start_time" name="start_time" required>
+                    </div>
+                    <div class="column">
+                        <input type="time" id="end_time" name="end_time" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <select id="test" name="test">
+                            <option value="test1">test1</option>
+                            <option value="test2">test2</option>
+                            <option value="test3">test3</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
 
     <button type="button" onclick="saveToPipedrive()">Submit</button>
 </form>
+
+<script>
+  document.querySelectorAll('select').forEach(function(selectElement) {
+    selectElement.addEventListener('change', function() {
+      if (this.value) {
+        this.classList.add('valid');
+      } else {
+        this.classList.remove('valid');
+      }
+    });
+  });
+</script>
 
 <script>
   async function saveToPipedrive() {
